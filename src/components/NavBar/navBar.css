@@ -1,5 +1,11 @@
 .menu{
     display: flex;
     justify-content: space-around;
-    
+    background-color: rgb(42, 165, 52);
+    color: aliceblue;
 }
+ .verde{
+    background-color: rgb(42, 165, 52);
+    color: aliceblue;
+    border: none;
+ }
