@@ -19,7 +19,7 @@ export const NavBar = () => {
       <Link to='/productos/electrodomestico'>electrodomesticos</Link>
       <Link to='/productos/ropa'>ropa</Link>
 
-      <Link to="/" className='verde'><CartWidget/></Link>
+      <Link to="/cart" className='verde'><CartWidget/></Link>
 
     </div>
   )

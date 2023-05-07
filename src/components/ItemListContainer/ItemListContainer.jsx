@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from 'react'
-import { pedirProductos } from '../../helpers/pedirProductos'
-import { ItemList } from '../ItemList/ItemList'
-import {ImSpinner3} from 'react-icons/im'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { ItemList } from '../ItemList/ItemList';
+import { ImSpinner3 } from 'react-icons/im';
+import { useParams } from 'react-router-dom';
+import { getFirestore } from '../../firebase/config';
 
-export const ItemListContainer = (props) => {
+export const ItemListContainer = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { categoryId } = useParams();
 
-  const [items, setItems]= useState([])
-  const [loading, setLoading] =useState(false)
-  //useParams es un hook propio de react router dom
-  const {categoryId} = useParams()
-  useEffect(()=>{
-    setLoading(true)
-    pedirProductos()
-    .then((res)=>{
-      if(categoryId){
-        setItems(res.filter(prod=>prod.category === categoryId))
+  useEffect(() => {
+    setLoading(true);
 
-      } else setItems(res)
+    const bd = getFirestore();
+    const productos = bd.collection('productos');
 
-    })
-    .catch((error)=>console.log(error))
-    .finally(() => setLoading(false))
-  }, [categoryId])
+    const filteredProductos = categoryId
+      ? productos.where('category', '==', categoryId)
+      : productos;
+
+    filteredProductos.get()
+      .then((res) => {
+        const newItem = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setItems(newItem);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+
+  }, [categoryId]);
+
   return (
     <div>
-    {loading ? (
-      <div className='spinner'><ImSpinner3/></div>
-    ) : (
-      <ItemList productos={items}/>
-    )}
-  </div>
-  )
-}
-
+      {loading ? (
+        <div className='spinner'>
+          <ImSpinner3 />
+        </div>
+      ) : (
+        <ItemList productos={items} />
+      )}
+    </div>
+  );
+};
