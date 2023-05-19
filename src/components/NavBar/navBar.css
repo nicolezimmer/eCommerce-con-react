@@ -1,4 +1,4 @@
-.menu{
+/* .menu{
     display: flex;
     justify-content: space-around;
     background-color: rgb(42, 165, 52);
@@ -8,4 +8,16 @@
     background-color: rgb(42, 165, 52);
     color: aliceblue;
     border: none;
- }
+ } */
+
+.fuenteBlanca{
+    color: #fff;
+
+}
+a {
+    text-decoration: none;
+  }
+  .link-custom {
+    color: inherit;
+    text-decoration: none;
+  }

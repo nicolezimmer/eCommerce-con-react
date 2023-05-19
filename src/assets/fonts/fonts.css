@@ -1,0 +1,69 @@
+@font-face {
+    font-family: 'Candy_Pop';
+    src: url('./Candy_Pop.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Kraash-Black';
+    src: url('./Kraash-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Kraash';
+    src: url('./Kraash.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Square-Squads';
+    src: url('./Square-Squads.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BobaMilky';
+    src: url('./BobaMilky.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'CoffeCake';
+    src: url('./CoffeCake.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'DAYSANS';
+    src: url('./DAYSANS.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .candyPop{
+    font-family: 'Candy_Pop';
+  }
+  .kraashBlack{
+    font-family: 'Kraash-Black';
+  }
+  .kraash{
+    font-family: 'Kraash';
+  }
+  .squareSquads{
+    font-family: 'Square-Squads';
+  }
+  /* C62828 
+8E44AD 
+9B59B6 
+lila BB8FCE
+D7BDE2  
+5B2C6F
+B30000
+FF4D4D 
+FF5733
+8B0000 
+verde 1 4CAF50
+verde 2 475F2A
+amarillo 1 FFEB3B
+amarillo 2 EEC203
+  */

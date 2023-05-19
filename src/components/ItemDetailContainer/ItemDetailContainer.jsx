@@ -1,12 +1,15 @@
+
 import React, { useEffect, useState } from 'react';
 import { ImSpinner3 } from 'react-icons/im';
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../../firebase/config';
+import { Error } from '../Error/Error';
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const { itemId } = useParams();
 
   useEffect(() => {
@@ -21,6 +24,7 @@ export const ItemDetailContainer = () => {
         if (doc.exists) {
           setItem({ id: doc.id, ...doc.data() });
         } else {
+          setError(true);
           console.log('No existe el producto');
         }
       })
@@ -30,10 +34,10 @@ export const ItemDetailContainer = () => {
 
   return (
     <section>
-      {loading
-        ? <ImSpinner3 />
-        : <ItemDetail {...item} />
-      }
+      {loading && <ImSpinner3 />}
+      {error && <Error/>}
+      {!loading && !error && <ItemDetail {...item} />}
     </section>
   );
 };
+

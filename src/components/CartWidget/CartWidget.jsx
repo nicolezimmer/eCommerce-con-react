@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { FaShoppingCart } from "react-icons/fa";
 import {CartContext} from '../context/CartContext'
 
 export const CartWidget = () => {
@@ -8,8 +7,10 @@ export const CartWidget = () => {
 
   return (
     <>
-    <FaShoppingCart className="carrito"/>
-    <span>{calcularCantidad()}</span>
+    <p>
+    {calcularCantidad()}
+    </p>
+
     </>
   )
 }

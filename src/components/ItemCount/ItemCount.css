@@ -1,6 +1,25 @@
-h4{
+.btn {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .btn button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #FFEB3B;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn button:hover {
+    background-color: #EEC203;
+  }
+  .text{
+    font-family: 'BobaMilky';
     text-align: center;
-}
-/* .btn{
-
-} */
+    color: #475F2A;
+  }

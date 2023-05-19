@@ -3,6 +3,8 @@ import {useNavigate, Link} from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
 import { ItemCount } from '../ItemCount/ItemCount'
 import {CartContext} from '../context/CartContext'
+import './itemDetail.css'
+import '../../assets/fonts/fonts.css';
 
 
 export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
@@ -35,19 +37,29 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
   return (
     <div className='item'>
       <Card>
-        <Card.Img variant="top" src={image} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Title>{description}</Card.Title>
-          <Card.Title>{price}</Card.Title>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea error totam quibusdam doloribus, alias aperiam exercitationem laboriosam illum similique eos, delectus vitae odit maxime, repellendus iusto quisquam placeat blanditiis. Cupiditate! </p>
-          <Card.Title>Categoria: {category}</Card.Title>
-          <ItemCount max={max} modifyStock={setStock} modify={setCounter} cantidad={counter} />
-          <Button onClick={sumarAlCarrito}>Agregar al carrito</Button>
-        </Card.Body>
-        <Button onClick={volverParaAtras}>Volver Atras</Button>
-        <Link to='/cart' className='btn btn-info'>ir al carrito</Link>
+        <div className="item-detail">
+          <Card.Img variant="top" src={image} className="item-detail-img" />
+          <div className="item-detail-info">
+            <Card.Body>
+              <Card.Title className="item-detail-title">{name}</Card.Title>
+              <Card.Text className="item-detail-description">{description}</Card.Text>
+              <Card.Text className="item-detail-price">${price}</Card.Text>
+              <p className='grr'>¡Woof! ¡Woof! ¡Grrrrrrr! ¡Woof! ¡Woof! ¡Grrrrrrr! ¡Woof! ¡Woof! ¡Grrrrrrr! ¡Woof! ¡Woof! Woof, woof, woof, woof, woof, woof, woof, woof, woof, woof! ¡Grrrrrrr! ¡Woof! ¡Woof! ¡Grrrrrrr! ¡Woof! ¡Woof! ¡Woof! ¡Woof! ¡Grrrrrrr! ¡Woof! ¡Grrrrrrr! ¡Woof! Grrrrrrr, grrrrrrr, grrrrrrr, woof, woof, woof</p>
+            </Card.Body>
+            
+          </div>
+        </div>
+        <div className='item-button-container'>        
+          <ItemCount max={max} modifyStock={setStock} modify={setCounter} cantidad={counter} className='item-detail-button'/>
+          <div className='buttons'>
+            <Button onClick={sumarAlCarrito} className='item-detail-button'>Agregar al carrito</Button>
+            <Button onClick={volverParaAtras} className='item-detail-button'>Volver Atras</Button>
+            <Button onClick={volverParaAtras} className='item-detail-button'><Link to='/cart' className='link-custom'>ir al carrito</Link></Button>
+          </div>
+        </div>
+
       </Card>
+
     </div>
   )
 }

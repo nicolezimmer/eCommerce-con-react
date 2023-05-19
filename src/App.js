@@ -14,6 +14,8 @@ import {
 import { CartProvider } from './components/context/CartContext'
 import { CartScreen } from './components/CartScreen/CartScreen';
 import { Checkout } from './components/Checkout/Checkout';
+import './index.css'
+import {CargarData} from './firebase/CargarData';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
       <BrowserRouter>
         <div className='App'>
           <NavBar />
+          {/* <CargarData/> */}
           <Routes>   
             <Route exact path='/' element={<ItemListContainer />} />
             <Route exact path='/productos/:categoryId' element={<ItemListContainer />} />
@@ -28,8 +31,8 @@ function App() {
             <Route exact path='/counter' element={<ItemCount />} />
             <Route exact path='/checkaut' element={<Checkout/>}/>
             <Route exact path='/cart' element={<CartScreen/>}/>
-            <Route exact path='/pika' element={<Pika />} />
-            <Route exact path='*' element={<Navigate to='/' />} />
+            {/* <Route path='/detail/:itemId(\d+|new)' element={<Error />} /> */}
+            <Route path='*' element={<Navigate to='/' />} />
           </Routes>
         </div>
       </BrowserRouter>

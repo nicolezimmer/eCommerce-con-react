@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './ItemCount.css'
+import '../../assets/fonts/fonts.css';
 
 export const ItemCount = ({max, modifyStock, modify, cantidad}) => {
     const sumar =()=>{
@@ -24,15 +25,17 @@ export const ItemCount = ({max, modifyStock, modify, cantidad}) => {
         modify(0)
     }
   return (
-    <>
-        <h3>Stock: {max}</h3>
-        <h4>Cantidad carrito: {cantidad}</h4>
-        <div className='btn'>
+    <div>
+        <div className='text'>
+            <h3>Stock: {max}</h3>
+            <p>Cantidad carrito: {cantidad}</p>
+        </div>
+       <div className='btn'>
             <button onClick={sumar}>➕</button>
             <button onClick={restar}>➖</button>
             <button onClick={resetear}>🔁</button>
-
         </div>
-    </>
+
+    </div>
   )
 }
